@@ -6,6 +6,9 @@
 //
 
 #import "OGLView.h"
+#include <OpenGL/gl.h>
+#include <OpenGL/glu.h>
+#include <OpenGL/gl3.h>
 
 static OGLView* sOGLView = nullptr;
 @implementation OGLView
@@ -21,6 +24,7 @@ static OGLView* sOGLView = nullptr;
     NSOpenGLPixelFormatAttribute pixel_format[]={
         NSOpenGLPFAOpenGLProfile,
         NSOpenGLProfileVersionLegacy,
+        //NSOpenGLProfileVersion4_1Core,
         NSOpenGLPFAColorSize,32,
         NSOpenGLPFADepthSize,24,
         NSOpenGLPFAStencilSize,8,
@@ -31,6 +35,7 @@ static OGLView* sOGLView = nullptr;
     NSOpenGLPixelFormat* format = [[NSOpenGLPixelFormat alloc] initWithAttributes:pixel_format];
     [self initWithFrame:rect pixelFormat:format];
     [[self openGLContext] makeCurrentContext];
+    NSLog(@"openGL Version:%s",glGetString(GL_VERSION));
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
