@@ -49,6 +49,8 @@ void Render() {
     glEnable(GL_CULL_FACE);
     
     //glEnable(GL_LINE);
+    
+    //以线条绘制
     glPolygonMode(GL_FRONT,GL_LINE);
     //glPolygonMode(GL_FRONT,GL_FILL);
     
@@ -68,6 +70,19 @@ void Render() {
     
     //GL_TRIANGLE_FAN 扇形 第一个点是扇心
     glBegin(GL_POINTS);
+    glVertex3f(0.0f, 0.0f, -2.0f);
+    glVertex3f(-0.5f, -0.5f, -2.0f);
+    glVertex3f(-0.0f, -0.5f, -2.0f);
+    glVertex3f(0.5f, -0.5f,  -2.0f);
+    glEnd();
+    
+    
+    //glBegin(GL_LINES);
+    //glBegin(GL_LINE_LOOP);
+    
+    //可以绘制不规则图形多边形，指定点的顺序
+    glBegin(GL_POLYGON);
+    //glBegin(GL_QUADS);
     glVertex3f(0.0f, 0.0f, -2.0f);
     glVertex3f(-0.5f, -0.5f, -2.0f);
     glVertex3f(-0.0f, -0.5f, -2.0f);
